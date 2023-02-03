@@ -1,0 +1,64 @@
+﻿@model WebEmpleo.Models.Experiencia
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Experiencia</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="IdExperienciaLaboral" />
+            <div class="form-group">
+                <label asp-for="IdPersona" class="control-label"></label>
+                <select asp-for="IdPersona" class="form-control" asp-items="ViewBag.IdPersona"></select>
+                <span asp-validation-for="IdPersona" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FchInicio" class="control-label"></label>
+                <input asp-for="FchInicio" class="form-control" />
+                <span asp-validation-for="FchInicio" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FchFin" class="control-label"></label>
+                <input asp-for="FchFin" class="form-control" />
+                <span asp-validation-for="FchFin" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Descripcion" class="control-label"></label>
+                <input asp-for="Descripcion" class="form-control" />
+                <span asp-validation-for="Descripcion" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Estado" /> @Html.DisplayNameFor(model => model.Estado)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="FchCreate" class="control-label"></label>
+                <input asp-for="FchCreate" class="form-control" />
+                <span asp-validation-for="FchCreate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FchUpdate" class="control-label"></label>
+                <input asp-for="FchUpdate" class="form-control" />
+                <span asp-validation-for="FchUpdate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
